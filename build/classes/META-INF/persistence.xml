@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="UserEJBModulePU" transaction-type="JTA">
+    <jta-data-source>jdbc/__default</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!-- Schema generation properties -->
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+      <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+      
+      <!-- EclipseLink specific properties -->
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+      <property name="eclipselink.logging.level" value="FINE"/> <!-- For debugging -->
+      
+      <!-- Derby specific properties -->
+      <property name="eclipselink.target-database" value="Derby"/>
+      <property name="eclipselink.jpa.uppercase-column-names" value="false"/>
+      
+      <!-- Connection validation -->
+      <property name="eclipselink.connection-pool.validate-connection" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>
